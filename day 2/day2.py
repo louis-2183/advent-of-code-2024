@@ -11,7 +11,7 @@ def check_line(line_str):
     # Condition for whether the a pair of ints increase or decrease
     increasing = ls[0] < ls[1]
     
-    # Scan every pair we haven't scanned with an established increase/decrease
+    # Scan every pair we need to with an established increase/decrease
     for idx,item in enumerate(ls[:-1]):
         # Define boolean for whether we are still increasing/decreasing
         condition = ls[idx] < ls[idx+1]
