@@ -68,8 +68,6 @@ print(score)
 score = 0
 
 def check_surrounding_xmas(xpos,ypos):
-    global score
-    
     # Get the corners, since if they are both sets of M and S then it is a valid X-MAS 
     diag1 = set([data[ypos+1][xpos+1],data[ypos-1][xpos-1]])
     diag2 = set([data[ypos-1][xpos+1],data[ypos+1][xpos-1]])
