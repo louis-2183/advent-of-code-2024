@@ -6,7 +6,6 @@ start_time = time.time()
 
 ######################## Part 1 ############################
 
-# File straight to array
 data = [list(l[:-1]) for l in open('input.txt')]
 
 # Work out the vectors of directions
