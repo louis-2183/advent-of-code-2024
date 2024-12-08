@@ -1,10 +1,12 @@
 from collections import defaultdict
 from itertools import combinations
 import numpy as np
+import time
+
+start_time = time.time()
 
 ######################## Part 1 ############################
 
-# File straight to array
 data = [l[:-1] for l in open('input.txt')]
 
 # Define a defaultdict for antenna locations since we need to populate lists for each antenna
@@ -75,5 +77,10 @@ def check_location_many(loc,diff,func):
 # Part 2 answer
 check_antennas(check_location_many)
 print(len(locations))
+
+###########################################################
+
+end_time = time.time()
+print(f"Time elapsed: {end_time-start_time}s")
 
 
