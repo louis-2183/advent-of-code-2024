@@ -1,7 +1,9 @@
+import time
+
+start_time = time.time()
 
 ######################## Part 1 ############################
 
-# File straight to array
 data = [l[:-1] for l in open('input.txt')]
 
 score = 0
@@ -68,6 +70,8 @@ print(score)
 score = 0
 
 def check_surrounding_xmas(xpos,ypos):
+    global score
+    
     # Get the corners, since if they are both sets of M and S then it is a valid X-MAS 
     diag1 = set([data[ypos+1][xpos+1],data[ypos-1][xpos-1]])
     diag2 = set([data[ypos-1][xpos+1],data[ypos+1][xpos-1]])
@@ -83,5 +87,10 @@ for y in yaxis[1:-1]:
             
 # Part 2 answer
 print(score)
+
+###########################################################
+
+end_time = time.time()
+print(f"Time elapsed: {end_time-start_time}s")
 
          
