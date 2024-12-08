@@ -36,4 +36,4 @@ print(sum(scores))
 
 # Adding the cache saves a bit of time
 end_time = time.time()
-print(end_time-start_time)
+print(f"Time elapsed: {end_time-start_time}s")
