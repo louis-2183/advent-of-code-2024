@@ -1,10 +1,10 @@
 import time
-import numpy as np
 from operator import add, mul
+
+start_time = time.time()
 
 ######################## Part 1 ############################
 
-# File straight to array
 data = [l[:-1] for l in open('input.txt')]
 
 def process_line(l,operators):
@@ -45,17 +45,18 @@ print(score)
         
 score2 = 0
 
-start_time = time.time()
-
 # Define a function to concatenate 2 integers
 concat = lambda x,y: int(str(x)+str(y))
 
 # For each bad line, is there a possible score with the concat operation. If so, fetch the score
 for idx,line in enumerate(bad_lines):
     score2 += process_line(line,[add,mul,concat])
-    
-end_time = time.time()
-print(end_time-start_time)
 
 # Part 2 (plus part 1 answer)
 print(score2+score)
+
+###########################################################
+
+end_time = time.time()
+print(f"Time elapsed: {end_time-start_time}s")
+
