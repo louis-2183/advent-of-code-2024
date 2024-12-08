@@ -1,13 +1,15 @@
+import time
+
+start_time = time.time()
 
 ######################## Part 1 ############################
+
+data = [list(map(int,l.split())) for l in open('input.txt')]
 
 # Function for whether change in pair meets condition (1<=x<=3) 
 diff = lambda x,y: 1 <= abs(x - y) <= 3
 
-def check_line(line_str):
-    # Convert our digits to integers
-    ls = [int(x) for x in line_str]
-    
+def check_line(ls):
     # Condition for whether the a pair of ints increase or decrease
     increasing = ls[0] < ls[1]
     
@@ -21,23 +23,13 @@ def check_line(line_str):
             return 0
         
     return 1
-        
-score = 0
 
-# Open the file
-with open('input.txt', 'r') as file:
-    # Read each line into an array
-    for line in file:
-        l = line.replace('\n','').split(' ')
-        
-        score += check_line(l)
+score = sum([check_line(line) for line in data])
         
 # Part 1 answer
 print(score)
 
 ######################## Part 2 ############################
-
-score = 0
 
 def check_removing(l):
     # Not the best possible method. Creating a list of checks, removing (and iterating over) items to switch out
@@ -49,15 +41,14 @@ def check_removing(l):
         checks_valid.append(check_line(l[:idx]+l[idx+1:]))
 
     # If no checks valid, more than 1 bad item exists
-    return (sum(checks_valid) > 0)
+    return any(checks_valid)
 
-# Open the file
-with open('input.txt', 'r') as file:
-    # Read each line into an array
-    for line in file:
-        l = line.replace('\n','').split(' ')
-        
-        score += check_removing(l)
+score = sum([check_removing(line) for line in data])
         
 # Part 2 answer
 print(score)
+
+###########################################################
+
+end_time = time.time()
+print(f"Time elapsed: {end_time-start_time}s")
