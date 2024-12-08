@@ -1,12 +1,15 @@
 import numpy as np
+import time
+
+start_time = time.time()
 
 ######################## Part 1 ############################
 
-# Since file is split into rules, entries
-found_entries = False
+data = open('input.txt').read()[:-1].split("\n\n")
 
-# Store list of rules
-rules = []
+# Since file is split into rules, entries
+rules = [x.split('|') for x in data[0].split('\n')]
+entries = [x.split(',') for x in data[1].split('\n')]
 
 # Keep bad items for part 2
 bad_items = []
@@ -27,31 +30,14 @@ def check_items(items):
 
 score = 0
 
-# Open the file
-with open('input.txt', 'r') as file:
-    # Read each line into an array
-    for line in file:
-        l = line.replace('\n','')
-        
-        # Scan separately for rules and entries
-        if not found_entries:
-            # Rules
-            if l == '':
-                found_entries = True
-            else:
-                # Append before and after rule items
-                rules.append(l.split('|'))
-        else:
-            # Entries
-            items = l.split(',')
-
-            # Check, check returns 0 if the entry is invalid
-            check = check_items(items)
-            score += check
-            
-            # If invalid save for part 2
-            if check == 0:
-                bad_items.append(items)
+for entry in entries:
+    # Check, check returns 0 if the entry is invalid
+    check = check_items(entry)
+    score += check  
+    
+    # If invalid save for part 2
+    if check == 0:
+        bad_items.append(entry)
             
 # Part 1 answer
 print(score)
@@ -80,7 +66,7 @@ def rearrange_line(l):
     for item in l:
         lens.append(len(rules_condensed[item]))
         
-    # Space for the newly arranged lsit
+    # Space for the newly arranged list
     finals = []
         
     i = 0
@@ -100,3 +86,8 @@ for bad in bad_items:
             
 # Part 2 answer
 print(score)
+
+###########################################################
+
+end_time = time.time()
+print(f"Time elapsed: {end_time-start_time}s")
