@@ -55,7 +55,7 @@ print(score)
 ######################## Part 2 ############################
 
 # Part 2 is simpler - add 1 when the end of a trail is encountered regardless of whether it is a duplicate position
-# Simple change to the previous function. Just don't make trailheads a set
+# Simple change to the previous code. Just don't make trailheads a set
 
 score = 0
 
