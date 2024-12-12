@@ -47,4 +47,6 @@ print(len(all_stones))
 ######################## Part 2 ############################
 
 # Cannot process 75 blinks this way! Script has been revised in day11_pt2.py
+print(len(all_stones))
+print(len(set(all_stones)))
 
