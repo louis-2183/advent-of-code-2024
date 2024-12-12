@@ -63,4 +63,4 @@ print(sum(current_stones.values()))
 end_time = time.time()
 print(f"Time elapsed: {end_time-start_time}s")
 
-# 1000 iterations in 2.19s
+# 1000 iterations in 2.19s (small improvement from infinity)
