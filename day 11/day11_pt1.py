@@ -1,38 +1,39 @@
-import time
-import math
 from functools import cache
-from multiprocessing import cpu_count, Pool
 
 ######################## Part 1 ############################
 
-file = open('input.txt').read()[:-1]
-data = file
+data = open('input.txt').read()[:-1]
 
 # Remove leading zeros from a numerical string
 no_zero = lambda x: str(int(x)) 
 
-# In an effort to faster return any previous inputs
+# Processes a single stone, returns a string of created stones
+# Cache in an effort to catch repeated inputs
 @cache
 def applyrules(stone):
     length = len(stone)
-    # Rule 1
+    
+    # Rule 1 - If it is zero, make it 1
     if int(stone) == 0:
         return "1"
-    # Rule 2
-    elif length == 2:
-        return stone[0] + " " + stone[1]
-    # Rule 3
+    
+    # Rule 2 - Split if there is an even length of digits
     elif length % 2 == 0:
         return no_zero(stone[:int(length/2)]) + " " + no_zero(stone[-int(length/2):])
-    # Otherwise
+    
+    # Otherwise multiply by 2024
     return str(int(stone)*2024)
     
-# Processes a full blink for each stone 
+# Processes a full blink for each stone in the current timeframe
 def blink(stones):
     line = ""
+    
+    # Go through each stone applying the rules
     for stone in stones.split(" "):
-        # Adding a space to separate stones
+        
+        # Add result string to a line, with a space to separate stones
         line += applyrules(stone) + " "
+    
     return line[:-1]
 
 # Blink 25 times
@@ -45,4 +46,4 @@ print(len(splits))
 
 ######################## Part 2 ############################
 
-# Cannot process 75 blinks this way. Script has been revised in day11_pt2.py
+# Cannot process 75 blinks this way! Script has been revised in day11_pt2.py
