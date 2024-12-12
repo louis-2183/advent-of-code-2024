@@ -14,7 +14,7 @@ no_zero = lambda x: str(int(x))
 # Processes a single stone, returns a list of created stones. 
 # Cache in an effort to catch repeated inputs
 @cache
-def func(stone):
+def applyrules(stone):
     length = len(stone)
     
     # Rule 1 - If it is zero, make it 1
@@ -45,7 +45,7 @@ for i in range(75):
     for item in current_stones.keys():
         
         # Process the item
-        processed = func(item)
+        processed = applyrules(item)
         
         # For the amount of stones we have, increment unique values for the new dict 
         for p in processed:
