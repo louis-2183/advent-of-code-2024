@@ -45,5 +45,4 @@ print(len(splits))
 
 ######################## Part 2 ############################
 
-# Cannot process 75 blinks this way
-# Not complete yet - sort list largest to smallest, process and cache to catch smaller numbers?
+# Cannot process 75 blinks this way. Script has been revised in day11_pt2.py
