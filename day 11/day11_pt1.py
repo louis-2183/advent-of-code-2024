@@ -41,9 +41,10 @@ for i in range(25):
     data = blink(data)
     
 # Part 1 answer
-splits = data.split(" ")
-print(len(splits))
+all_stones = data.split(" ")
+print(len(all_stones))
 
 ######################## Part 2 ############################
 
 # Cannot process 75 blinks this way! Script has been revised in day11_pt2.py
+
