@@ -10,9 +10,6 @@ start_time = time.time()
 
 data = [l[:-1] for l in open('input.txt')]
 
-# Grid bounds
-xmax,ymax = len(data),len(data[0])
-
 # Work out the vectors of directions
 directions = [[round(sin(a*(pi/2))),round(cos(a*(pi/2)))] for a in range(0,4)] 
 
