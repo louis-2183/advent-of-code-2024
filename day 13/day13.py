@@ -53,7 +53,7 @@ print(score)
 
 ############################################################
 
-# Vindication!!!!
+# Vindication!!!! O(1)
 
 end_time = time.time()
 print(f"Time elapsed: {end_time-start_time}s")
