@@ -14,7 +14,7 @@ prune = lambda x: (x % 16777216)
 # Mixes and prunes or something
 @cache
 def mix_prune(sec):   
-    # 16777216 = '0b1000000000000000000000000', there may be a better solution than this
+    # 16777216 = '0b1000000000000000000000000', powers of 2 used also, there may be a better solution than this
     sec = prune(mix(sec,sec*64))
     sec = prune(mix(sec,floor(sec/32)))
     sec = prune(mix(sec,sec*2048))
