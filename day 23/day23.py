@@ -1,6 +1,8 @@
 from collections import defaultdict, Counter
 from itertools import chain
 
+######################## Part 1 ############################
+
 data = [l[:-1].split('-') for l in open('input.txt')]
 
 # List of unique computers in the data
@@ -41,7 +43,7 @@ for main in [c for c in computers if c[0] == 't']:
 # Part 1 answer
 print(len(final))
 
-##########################################################
+######################## Part 2 ############################
 
 scores = {}
 
@@ -70,3 +72,5 @@ for main in computers:
     
 # Part 2 answer - the group of computers with the most shared connections
 print([key for key in scores.keys() if scores[key] == max(scores.values())])
+
+############################################################
