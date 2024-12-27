@@ -68,7 +68,7 @@ grid = [[char for char in x] for x in grid.split('\n')]
 # Update starting position
 start_x = start_x*2
         
-# Based on how trymove_big() works, the all() function will create an infinite loop while trying to move both items from a box 
+# Based on how trymove_big() works, the all() function will create an infinite loop while trying to move both items from a box in some cases
 # Scan for any existing space from a given box and return the result if we know there is no possible space
 def scan_hor(ny,nx,instr):
     char = grid[ny][nx]
